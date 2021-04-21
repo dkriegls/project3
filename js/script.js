@@ -1,9 +1,19 @@
+function initMap(){
 
-var map;
 
-function initMap() {
-  map = new google.maps.Map(document.getElementById("map"), {
-    center: { lat: -34.397, lng: 150.644 },
-    zoom: 8,
-  });
+	var el = document.getElementById('canvas');
+	var myLocation = new google.maps.LatLng(-34.397, 150.644);
+	var mapOptions = {
+		center: myLocation,
+		zoom: 18,
+		mapTypeId: google.maps.MapTypeId.SATELLITE,
+		mapTypeControlOptions: {
+			position: google.maps.ControlPosition.BOTTOM_CENTER
+		}
+	};
+
+  var myMap = new google.maps.Map(el, mapOptions);
+
 }
+
+google.maps.event.addDomListener(window, 'load', initMap);
